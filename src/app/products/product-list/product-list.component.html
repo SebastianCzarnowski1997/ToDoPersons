@@ -1,0 +1,26 @@
+<div class='mainContainer'>
+<div class="addingPersons">
+  <input type="text" name="FirstName" placeholder="First name" [(ngModel)]="product.firstName">
+  <input type="text" name="LastName" placeholder="Last name" [(ngModel)]="product.lastName">
+  <button [hidden]="add" (click)="addProduct()">add Person</button>
+  <button [hidden]="edit" (click)="updateProduct()">Update Person</button>
+</div>
+<div class="displayPersons">
+<table id="products">
+  <tr class="firstRow"> 
+    <th>S/N</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <tr class="secondRow" *ngFor="let product of products">
+    <td>{{product.id}}</td>
+    <td>{{product.firstName}}</td>
+    <td>{{product.lastName}}</td>
+    <td><button (click)="setProductEdit(product)">Update</button></td>
+    <td><button (click)="removeProduct(product)">Delete</button></td>
+  </tr>
+</table>
+</div>
+</div>
