@@ -4,6 +4,7 @@
   <input type="text" name="LastName" placeholder="Last name" [(ngModel)]="product.lastName">
   <button [hidden]="add" (click)="addProduct()">add Person</button>
   <button [hidden]="edit" (click)="updateProduct()">Update Person</button>
+  <a routerLink="product/add/0"></a>
 </div>
 <div class="displayPersons">
 <table id="products">
@@ -11,15 +12,16 @@
     <th>S/N</th>
     <th>Name</th>
     <th>Surname</th>
-    <th>Update</th>
-    <th>Delete</th>
+    <!-- <th>Update</th>
+    <th>Delete</th> -->
   </tr>
   <tr class="secondRow" *ngFor="let product of products">
     <td>{{product.id}}</td>
     <td>{{product.firstName}}</td>
     <td>{{product.lastName}}</td>
-    <td><button (click)="setProductEdit(product)">Update</button></td>
     <td><button (click)="removeProduct(product)">Delete</button></td>
+    <!-- <td><button (click)="setProductEdit(product)">Update/Edit</button></td> -->
+    <td><a [routerLink]="['product/edit', product.id]">Edit</a></td>
   </tr>
 </table>
 </div>
